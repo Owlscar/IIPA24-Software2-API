@@ -43,6 +43,7 @@ namespace Software2_API.Controllers
 
         [HttpPost]
         [Route("/api/[Controller]/CrearUsuario")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> CrearUsuarios([FromBody] RequestUserDto requestUserDto)
         {
             if (!ModelState.IsValid)
@@ -57,7 +58,7 @@ namespace Software2_API.Controllers
 
         [HttpPost]
         [Route("/api/[Controller]/ObtenerUsuarios")]
-        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> GetUsuarios()
         {
             if (!ModelState.IsValid)
@@ -70,7 +71,7 @@ namespace Software2_API.Controllers
 
         [HttpGet]
         [Route("/api/[Controller]/ReportePDF64")]
-        [AllowAnonymous]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> GetReportePDF64()
         {
             ResponseGeneralDto resposeGeneralDto = new();

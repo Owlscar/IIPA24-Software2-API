@@ -103,7 +103,7 @@ app.UseSwagger();
 
 app.UseSwaggerUI();
 
-app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());// global cors policy WithOrigins("https://localhost:8185")
+app.UseCors(x => x.WithOrigins("https://localhost:8185").AllowAnyMethod().AllowAnyHeader());// global cors policy 
 
 app.UseHttpsRedirection();
 
